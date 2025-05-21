@@ -55,4 +55,27 @@
 - 梯度下降与优化器（SGD、Adam）  
 - 模型评估与交叉验证  
 
+## 学习进展
+### 2025-05-21
+1. 多线程、文件操作（multi-thread.py）
+- with关键字的作用：
+  - 简化资源管理的操作，使代码更清晰简洁，确保资源在使用后能够被正常释放（即便是代码块发生异常，资源也会被释放），避免手动写`try...finally`。
+  - 可应用的场景比较多，比如：多线程、文件操作、数据库操作、锁操作等等；
+  - 工作原理：依赖对象的`__enter__()`和`__exit__()`方法：在进入with代码块时，enter方法被调用返回资源对象，在离开代码块时，exit方法被调用释放资源对象；
+  - 举例：
+  ```python
+   # 写入文件
+  with open(filename, 'wb') as file:
+    for chunk in response.iter_content(chunk_size=8192):
+        file.write(chunk)
+  ```
+  ```python
+  # 创建线程池，最大线程数为5
+  with ThreadPoolExecutor(max_workers=5) as executor:
+    # 提交所有下载任务
+    futures = [executor.submit(download_image, url) for url in IMAGE_URLS]
+        
+    # 获取所有任务的结果
+    results = [future.result() for future in futures]
+  ```
 

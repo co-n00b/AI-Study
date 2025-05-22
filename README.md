@@ -143,4 +143,20 @@
     - `request.get(url, stream=True)`：代表流式获取文件，降低内存消耗，尤其是读取大文件时
     - `response.raise_for_status`：安全检查机制，检查http响应的状态码，如果是200~299，则会继续执行，否则会抛出异常
     - `for chunk in response.iter_content(chunk_size=8192)`：在流式读取文件时，以8192字节（8k）的数据库大小进行读取下载
+5. 多线程
+- 代码
+  ```python
+    # 创建线程池，最大线程数为5
+    with ThreadPoolExecutor(max_workers=5) as executor:
+      # 提交所有下载任务
+      futures = [executor.submit(download_image, url) for url in IMAGE_URLS]
+          
+      # 获取所有任务的结果
+      results = [future.result() for future in futures]
+  ```
+- 解释
+  `with`：确保线程池在使用完后被正确关闭，避免代码块发生异常时线程池未正确关闭；
+  `ThreadPoolExecutor(max_workers=5) as executor`：创建最大线程数为5的线程池
+  `futures = [executor.submit(download_image, url) for url in IMAGE_URLS]`：列表推导式，生成5个Future对象
+  `future.result()`：线程的执行是`executor.submit()`方法触发的，`future.result()`方法只是阻塞在这里等待结果返回
 

@@ -102,5 +102,15 @@
   squares = [x**2 for x in [1,2,3,4]]
   print(squares) # 输出：[1,4,9,16]
   ```
+3. f-string，格式化字符串字面量（Formatted String Literal）
+- 说明
+  Python 3.6及以上版本引入的语法糖，支持嵌入表达式，包括变量、函数、数学运算、格式化、对齐填充等；
+- 示例
+  ```python
+  name = "Zhangsan"
+  age = 30
+  height = 187.237
+  print(f"Name:{name},Age:{30+1},Height:{height:.2f}")
+  ```
 
 

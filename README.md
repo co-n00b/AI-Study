@@ -152,7 +152,7 @@
       results = [future.result() for future in futures]
   ```
 - 解释  
-  `with`：确保线程池在使用完后被正确关闭，避免代码块发生异常时线程池未正确关闭；
+  `with`关键字：确保线程池在使用完后被正确关闭，避免代码块发生异常时线程池未正确关闭；
   `ThreadPoolExecutor(max_workers=5) as executor`：创建最大线程数为5的线程池
   `futures = [executor.submit(download_image, url) for url in IMAGE_URLS]`：列表推导式，生成5个Future对象
   `future.result()`：线程的执行是`executor.submit()`方法触发的，`future.result()`方法只是阻塞在这里等待结果返回

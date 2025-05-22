@@ -113,5 +113,34 @@
   height = 187.237
   print(f"Name:{name},Age:{30+1},Height:{height:.2f}")
   ```
-
+4.流式下载文件，并存储到本地
+- 代码
+  ```python
+  def download_image(url):
+    """下载单个图片的函数"""
+    try:
+        # 获取图片文件名
+        filename = f'downloads/image_{url.split("=")[-1]}.jpg'
+        
+        # 发送HTTP请求
+        response = requests.get(url, stream=True)
+        response.raise_for_status()  # 检查请求是否成功
+        
+        # 写入文件
+        with open(filename, 'wb') as file:
+            for chunk in response.iter_content(chunk_size=8192):
+                file.write(chunk)
+                
+        print(f"下载完成: {filename}")
+        return filename
+        
+    except Exception as e:
+        print(f"下载失败 {url}: {e}")
+        return None
+  ```
+  - 解析
+    - `url.split("=")[-1]`：根据字符串`=`分割成列表，取最后一个元素
+    - `request.get(url, stream=True)`：代表流式获取文件，降低内存消耗，尤其是读取大文件时
+    - `response.raise_for_status`：安全检查机制，检查http响应的状态码，如果是200~299，则会继续执行，否则会抛出异常
+    - `for chunk in response.iter_content(chunk_size=8192)`：在流式读取文件时，以8192字节（8k）的数据库大小进行读取下载
 

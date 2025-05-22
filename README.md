@@ -83,23 +83,23 @@
     results = [future.result() for future in futures]
   ```
 2. 列表推导式（List Comprehension）
-```python
-# expression：对每个元素执行的操作，如item * 2
-# item：迭代变量，表示可迭代对象中的每个元素
-# iterable：可迭代对象，如列表、元组、字符串等
-[expression for item in iterable]
-```
+  ```python
+  # expression：对每个元素执行的操作，如item * 2
+  # item：迭代变量，表示可迭代对象中的每个元素
+  # iterable：可迭代对象，如列表、元组、字符串等
+  [expression for item in iterable]
+  ```
 - 示例
-```python
-# 传统写法
-square = []
-for x in [1,2,3,4]
-  squares.append(x**2)
-print(squares) # 输出：[1,4,9,16]
+  ```python
+  # 传统写法
+  square = []
+  for x in [1,2,3,4]
+    squares.append(x**2)
+  print(squares) # 输出：[1,4,9,16]
 
-# 列表推导式
-squares = [x**2 for x in [1,2,3,4]]
-print(squares) # 输出：[1,4,9,16]
-```
+  # 列表推导式
+  squares = [x**2 for x in [1,2,3,4]]
+  print(squares) # 输出：[1,4,9,16]
+  ```
 
 

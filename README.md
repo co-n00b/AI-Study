@@ -83,6 +83,7 @@
     results = [future.result() for future in futures]
   ```
 2. 列表推导式（List Comprehension）
+- 说明
   ```python
   # expression：对每个元素执行的操作，如item * 2
   # item：迭代变量，表示可迭代对象中的每个元素

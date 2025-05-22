@@ -138,11 +138,11 @@
         print(f"下载失败 {url}: {e}")
         return None
   ```
-  - 解析
-    - `url.split("=")[-1]`：根据字符串`=`分割成列表，取最后一个元素
-    - `request.get(url, stream=True)`：代表流式获取文件，降低内存消耗，尤其是读取大文件时
-    - `response.raise_for_status`：安全检查机制，检查http响应的状态码，如果是200~299，则会继续执行，否则会抛出异常
-    - `for chunk in response.iter_content(chunk_size=8192)`：在流式读取文件时，以8192字节（8k）的数据库大小进行读取下载
+- 解析
+  - `url.split("=")[-1]`：根据字符串`=`分割成列表，取最后一个元素
+  - `request.get(url, stream=True)`：代表流式获取文件，降低内存消耗，尤其是读取大文件时
+  - `response.raise_for_status`：安全检查机制，检查http响应的状态码，如果是200~299，则会继续执行，否则会抛出异常
+  - `for chunk in response.iter_content(chunk_size=8192)`：在流式读取文件时，以8192字节（8k）的数据库大小进行读取下载
 5. 多线程
 - 代码
   ```python
@@ -154,7 +154,7 @@
       # 获取所有任务的结果
       results = [future.result() for future in futures]
   ```
-- 解释
+- 解释  
   `with`：确保线程池在使用完后被正确关闭，避免代码块发生异常时线程池未正确关闭；
   `ThreadPoolExecutor(max_workers=5) as executor`：创建最大线程数为5的线程池
   `futures = [executor.submit(download_image, url) for url in IMAGE_URLS]`：列表推导式，生成5个Future对象

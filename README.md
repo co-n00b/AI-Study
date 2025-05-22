@@ -104,6 +104,7 @@
   ```
 3. f-string，格式化字符串字面量（Formatted String Literal）
 - 说明
+
   Python 3.6及以上版本引入的语法糖，支持嵌入表达式，包括变量、函数、数学运算、格式化、对齐填充等；
 - 示例
   ```python

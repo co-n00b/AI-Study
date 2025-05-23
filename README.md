@@ -54,5 +54,5 @@
 - 模型评估与交叉验证  
 
 ## 学习进展
-> 没有找到更合适的地方托管学习笔记，暂时托管到CSDN吧
-> 2025-05-21 [【AI Study】第一天，多线程、文件操作](https://blog.csdn.net/tearofthemyth/article/details/148161511)
+> - 没有找到更合适的地方托管学习笔记，暂时托管到CSDN吧！
+> - 2025-05-21 [【AI Study】第一天，多线程、文件操作](https://blog.csdn.net/tearofthemyth/article/details/148161511)
